@@ -1,9 +1,9 @@
 print(f"\nWelcome to Bee's Ice Cream!")
 print(f"\nHi, I am Kelly your virtual assistant! How may we serve you today!")   
 
-size = input("\nWhat size ice cream will you be getting? Enter cone or cup: ")
-while size.lower() not in ["cone", "cup"]:
-    size = input("Invalid value! Please enter cone or cup: ")
+size = input("\nWhat size ice cream will you be getting? Enter small or large: ")
+while size.lower() not in ["small", "large"]:
+    size = input("Invalid value! Please enter small or large: ")
 
 flavor = input("Which flavor has your eye? Enter a flavor: ")
 while len(flavor) ==0:
@@ -17,19 +17,24 @@ quantity = input("How many of these do you want? Enter a numeric value: ")
 while not quantity.isdigit():
     quantity = input("\nValue not recognized. Please enter a numeric value! ")
     
-    quanity =int(quantity)
-method = input("\nWill this be dine in or carry out: ")
-while method not in ["dine in", "carry out"]:
-    method = input("Invalid value! Please enter dine in or carry out: ")
+    quantity =int(quantity)
+method = input("\nWill this be dine in or delivery: ")
+while method not in ["dine in", "delivery"]:
+    method = input("Invalid value! Please enter dine in or delivery: ")
 
-salesTax = 0.5
+if method.lower() == "delivery":
+    deliveryFee = 1
+else:
+    deliveryFee = 0
 
-if size.lower() == "cone":
-    icecreamCost = 1.25
-elif size.lower() == "cup":
-    icecreamCost = 2.50
+salesTax = 1.5
+
+if size.lower() == "small":
+    iceCreamCost = 3.25
+elif size.lower() == "large":
+    iceCreamCost = 6.50
     
-total = (icecreamCost * quantity) * salesTax 
+total = (iceCreamCost * quantity) * salesTax + deliveryFee
 print("-" * 10)
 print(f"Thank you, for your order.")
 print(f"Your {quantity} {size} {flavor} iceCream costs ${total:,.2f}. ")
@@ -39,5 +44,5 @@ if total >=5:
 else:
      print("\nCongratulations! You will receive a free cone! ")
      
-     
+print("-" * 10)     
     
