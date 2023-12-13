@@ -17,7 +17,7 @@ quantity = input("How many of these do you want? Enter a numeric value: ")
 while not quantity.isdigit():
     quantity = input("\nValue not recognized. Please enter a numeric value! ")
     
-    quantity =int(quantity)
+quantity =int(quantity)
 method = input("\nWill this be dine in or delivery: ")
 while method not in ["dine in", "delivery"]:
     method = input("Invalid value! Please enter dine in or delivery: ")
@@ -44,5 +44,17 @@ if total >=5:
 else:
      print("\nCongratulations! You will receive a free cone! ")
      
-print("-" * 10)     
-    
+print("-" * 10)
+
+print("Order has been received. ETA 3 minutes!" )
+for min in range(3, 0, -1):
+    print(min, "minutes remaining")
+    for seconds in range(60, 0, -1):
+        print(seconds, end = "\r")
+        import time
+        time.sleep(1)
+print("Order is ready!")
+
+keepGoing = input("Do you want to place another order? Enter y or n: ")
+while keepGoing.lower() not in ["y", "n"]:
+    keepGoing - input("Invalid value! Enter y or n: ")
